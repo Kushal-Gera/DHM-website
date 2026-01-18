@@ -29,7 +29,6 @@ section {
 
 
 /* ---------- HERO ---------- */
-
 .hero {
   min-height: calc(100vh - var(--nav-height));
   display: flex;
@@ -66,8 +65,8 @@ section {
   width: 100%;
 }
 
-/* ---------- ARCHITECTURE ---------- */
 
+/* ---------- ARCHITECTURE ---------- */
 .architecture {
   text-align: center;
 }
@@ -111,7 +110,6 @@ section {
 }
 
 /* ---------- CLAIMS ---------- */
-
 .claims {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -140,7 +138,6 @@ section {
 }
 
 /* ---------- FOOTER ---------- */
-
 footer {
   padding: 80px 8%;
   text-align: center;
@@ -148,9 +145,7 @@ footer {
   font-size: 14px;
 }
 
-/* ---------- ANI*
 /* ---------- SPLIT SECTIONS ---------- */
-
 .split {
   display: flex;
   align-items: center;
@@ -181,7 +176,6 @@ footer {
 }
 
 /* ---------- IMAGE PLACEHOLDERS ---------- */
-
 .image-placeholder {
   height: 320px;
   border-radius: 24px;
@@ -203,7 +197,6 @@ footer {
 }
 
 /* ---------- LAYERS ---------- */
-
 .layers {
   text-align: center;
 }
@@ -235,9 +228,25 @@ footer {
 }
 
 .layer.core {
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.layer {
+  transition: 
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+  cursor: default;
+}
+.layer:hover {
+  /* transform: translateY(-6px); */
   background: linear-gradient(180deg, var(--blue-1), var(--blue-2));
   color: white;
+  box-shadow: 0 16px 40px rgba(10,108,255,0.25);
 }
+
 
 /* ---------- STATEMENT ---------- */
 
@@ -336,7 +345,6 @@ body:not(:has(.hero:hover)) .navbar {
 
 
 /* Logo */
-
 .nav-logo {
   display: flex;
   align-items: center;
@@ -345,28 +353,22 @@ body:not(:has(.hero:hover)) .navbar {
   white-space: nowrap;
 }
 
-
 .nav-logo img {
-  width: 32px;
-}
-
-/* Links */
-
-.nav-logo img {
-  width: 28px;
-  height: 28px;
+  width: 48px;
   display: block;
 }
 
 
+/* Links */
 .nav-links a {
   text-decoration: none;
   color: var(--text-main);
   font-size: 14px;
   position: relative;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
-  
+  transition: opacity 0.2s ease;
+  padding: 8px 4px;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -375,7 +377,6 @@ body:not(:has(.hero:hover)) .navbar {
   gap: 32px;
   height: 100%;
 }
-
 
 .nav-links a:hover {
   opacity: 1;
@@ -398,10 +399,171 @@ body:not(:has(.hero:hover)) .navbar {
   width: 100%;
 }
 
-/* ---------- MOBILE ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
+
+  section {
+    padding: 64px 6%;
+  }
+    
+  /* Hide navigation links */
   .nav-links {
-    display: none;
+    display: none !important;
+  }
+    
+  .nav-logo span {
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Center logo */
+  .nav-inner {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .nav-logo {
+    justify-content: center;
+  }
+
+  .nav-logo img {
+    height: 28px;
+    width: auto;
+  }
+
+  /* Ensure navbar never overflows */
+  .navbar {
+    overflow: hidden;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    min-height: auto;
+    margin: 0;
+    margin-top: 40px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .logo-container {
+    width: 220px;
+    height: 220px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* ---------- ARCHITECTURE ---------- */
+
+  .architecture h2 {
+    font-size: 32px;
+  }
+
+  .system {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .pins {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .node {
+    padding: 18px 20px;
+    font-size: 13px;
+  }
+
+  .node.cbu {
+    transform: none;
+  }
+
+  /* ---------- SPLIT SECTIONS ---------- */
+
+  .split,
+  .split.reverse {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .split-text h2 {
+    font-size: 32px;
+  }
+
+  .split-text p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .split-media {
+    width: 100%;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 260px;
+    border-radius: 20px;
+  }
+
+
+  /* ---------- STATEMENT ---------- */
+
+  .statement {
+    padding: 100px 6%;
+  }
+
+  .statement h1 {
+    font-size: 36px;
+  }
+
+  /* ---------- FUTURE ---------- */
+
+  .future h2 {
+    font-size: 32px;
+  }
+
+  /* ---------- LAYERS ---------- */
+
+  .layers h2 {
+    font-size: 32px;
+  }
+
+  .layer {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* ---------- CLAIMS ---------- */
+
+  .claims {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .claim {
+    padding: 28px;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    padding: 48px 6%;
+    font-size: 13px;
   }
 }
